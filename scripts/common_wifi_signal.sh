@@ -12,5 +12,3 @@ wifi_signal=$(
 )
 
 printf "$wifi_signal"
-
-exit 0
