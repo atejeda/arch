@@ -1,3 +1,0 @@
-pulsemixer
-pavucontrol-qt
-pamixer
