@@ -1,0 +1,24 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
+        , borderColor = "black"
+        , border = TopB
+        , bgColor = "black"
+        , fgColor = "grey"
+        , position = TopW L 100
+        , commands =    [ Run Weather "SCEL" ["-t","<tempC>c","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+                        , Run Com "/home/atejeda/arch/scripts/common_wifi_signal.sh" [] "wlp1s0si" 30
+                        , Run Com "/home/atejeda/arch/scripts/common_audio_status.sh" [] "volstat" 10 
+                        , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                        , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                        , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                        , Run Memory ["-t","Mem: <usedratio>%"] 10
+                        , Run Swap [] 10
+                        , Run Com "uname" ["-s","-r"] "" 36000
+                        , Run Date "%d/%m/%Y %H:%M UTC%Z" "date" 10
+                        , Run StdinReader
+                        , Run Battery ["-t","<acstatus>: <left>% - <timeleft>","--","-O","AC","-o","Bat","-h","green","-l","red"] 10
+                        , Run Wireless "wlp1s0" [ "-t", "<essid>" ] 10
+                        ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " %cpu% | %memory% * %swap% | %eth0% - %wlp1s0% }{ %uname% | v:%volstat% | %wlp1s0wi% %wlp1s0si% | %battery% | <fc=#ee9a00>%date%</fc> %SCEL%"  
+        }

@@ -1,0 +1,28 @@
+    9  pacman -S linux linux-lts linux-headers linux-lts-headers
+   10  pacman -Sy vim emacs base-devel openssh betworkmanager wpa_supplicant wireless_tools netctl
+   11  pacman -Sy vim emacs base-devel openssh
+   12  pacman -S networkmanager wpa_supplicant wireless_tools netctl
+   13  pacman -S dialog lvm grub efibootmgr dosfstools os-prober mtools emacs git reflecto cups xdg-utils xdg-user-dirs
+   14  pacman -S dialog lvm grub efibootmgr dosfstools os-prober mtools  git reflecto cups xdg-utils xdg-user-dirs
+   15  pacman -S dialog lvm grub 
+   16  pacman -S dialog lvm grub
+   17  pacman -S dialog grub
+   18  pacman -S efibootmgr dosfstools os-prober mtools
+   19  pacman -S git svn
+   20  pacman -S reflector cups xdg-utils xdf-user-dirs
+   21  pacman -S reflector cups xdg-utils xdg-user-dirs
+   25  pacman -S lvm2
+   50  pacman -S htop
+   53  pacman -S intel-ucode
+   54  pacman -S mesa
+  123  pacman -S dialog lvm grub
+  164  pacman -S iwd
+  172  pacman -S lxdm
+  182  pacman -Sy xfce4 xfce4-goodies
+  183  pacman -S volumeicon network-manager-applet
+  189  pacman -S xorg-fonts-misc
+  190  pacman -S xorg-init
+  191  pacman -S xorg-xinit
+  193  history | pacman.list.txt
+  194  history | grep pacman >> pacman.list.txt
+ntp
