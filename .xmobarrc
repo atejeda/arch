@@ -1,4 +1,4 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
         , borderColor = "black"
         , border = TopB
         , bgColor = "black"
@@ -7,7 +7,7 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
         , commands =    [ Run Weather "SCEL" ["-t","<tempC>c","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
                         , Run Com "/home/atejeda/arch/scripts/common_wifi_signal.sh" [] "wlp1s0si" 30
                         , Run Com "/home/atejeda/arch/scripts/common_audio_status.sh" [] "volstat" 10 
-                        , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                        , Run Network "enp34s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                         , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                         , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                         , Run Memory ["-t","Mem: <usedratio>%"] 10
@@ -20,5 +20,5 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-18-*-*-*-*-*-*-*"
                         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = " %cpu% | %memory% * %swap% | %eth0% - %wlp1s0% }{ %uname% | v:%volstat% | %wlp1s0wi% %wlp1s0si% | %battery% | <fc=#ee9a00>%date%</fc> %SCEL%"  
+        , template = " %StdinReader% | %cpu% | %memory% * %swap% | %enp34s0% }{ %volstat% | %uname% | <fc=#ee9a00>%date%</fc> %SCEL%"  
         }

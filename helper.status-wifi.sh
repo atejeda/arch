@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+wifi_interface=wlp1s0
+
 wifi_signal=$(
-    iwconfig wlp1s0 \
+    iwconfig $wifi_interface \
     | grep Quality \
     | awk -F ' ' '{ gsub(/^[ \t]+|[ \t]+$/, ""); print $2 }' \
     | cut -d '=' -f2

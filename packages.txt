@@ -1,0 +1,57 @@
+linux linux-lts linux-headers linux-lts-headers
+vim emacs base-devel openssh betworkmanager wpa_supplicant wireless_tools netctl
+vim emacs base-devel openssh
+networkmanager wpa_supplicant wireless_tools netctl
+dialog lvm grub efibootmgr dosfstools os-prober mtools emacs git reflecto cups xdg-utils xdg-user-dirs
+dialog lvm grub efibootmgr dosfstools os-prober mtools  git reflecto cups xdg-utils xdg-user-dirs
+dialog lvm grub 
+dialog lvm grub
+dialog grub
+efibootmgr dosfstools os-prober mtools
+git svn
+reflector cups xdg-utils xdf-user-dirs
+reflector cups xdg-utils xdg-user-dirs
+lvm2
+htop
+intel-ucode
+mesa
+dialog lvm grub
+iwd
+lxdm
+xfce4 xfce4-goodies
+volumeicon network-manager-applet
+xorg-fonts-misc
+xorg-init
+xorg-xinit
+ntp
+
+
+# pacman -Syy
+reflector
+# pacman -Syy
+rsync
+dmenu
+signal-desktop
+nautilus
+vlc
+mesa-demos
+virtualbox
+virtualbox-host-dkms # only for linux-lts, otherwise use virtualbox-host-modules-arch (only for linux kernel's), custom kernels... check arch virtualbox
+# https://linuxhint.com/install_configure_kvm_archlinux/
+virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat
+pamixer
+pavucontrol-qt
+pulseaudio
+alsa-utils
+axel
+ntfs-3g
+gdb
+dnsutils
+nmap
+meld
+docker
+docker-compose
+swig
+extra/jdk11-openjdk
+jq
+

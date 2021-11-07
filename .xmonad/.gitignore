@@ -1,0 +1,7 @@
+git-x*
+xmonad-x86_64-linux
+stack.yaml.lock
+xmonad.errors
+xmonad.o
+xmonad.hi
+.stack-work
