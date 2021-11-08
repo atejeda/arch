@@ -1,0 +1,13 @@
+* Xmonad / Xmobar install
+
+** stack
+
+#+begin_src
+curl -sSL https://get.haskellstack.org/ | sh
+stack setup
+stack init
+#+end_src
+
+More at [[https://brianbuccola.com/how-to-install-xmonad-and-xmobar-via-stack/][xmonad install instrucions]].
+
+
