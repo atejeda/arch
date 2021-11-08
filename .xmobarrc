@@ -5,8 +5,8 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
         , fgColor = "grey"
         , position = TopW L 100
         , commands =    [ Run Weather "SCEL" ["-t","<tempC>c","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-                        , Run Com "/home/atejeda/arch/scripts/common_wifi_signal.sh" [] "wlp1s0si" 30
-                        , Run Com "/home/atejeda/arch/scripts/common_audio_status.sh" [] "volstat" 10 
+                        , Run Com "~/arch/helper.status-wifi.sh" [] "wlp1s0si" 30
+                        , Run Com "~/arch/helper.status-audio.sh" [] "volstat" 10 
                         , Run Network "enp34s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                         , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                         , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
