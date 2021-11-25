@@ -74,3 +74,5 @@ xorg-fonts-misc
 xorg-init
 xorg-xinit
 yt-dl
+gtk2fontsel
+xorg-appres
