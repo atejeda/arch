@@ -6,8 +6,7 @@
 curl -sSL https://get.haskellstack.org/ | sh
 stack setup
 stack init
+stack install
 #+end_src
 
 More at [[https://brianbuccola.com/how-to-install-xmonad-and-xmobar-via-stack/][xmonad install instrucions]].
-
-
