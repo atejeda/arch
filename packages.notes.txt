@@ -1,0 +1,6 @@
+# pacman -Syy
+reflector
+# pacman -Syy
+
+virtualbox-host-dkms # only for linux-lts, otherwise use virtualbox-host-modules-arch (only for linux kernel's), custom kernels... check arch virtualbox
+# https://linuxhint.com/install_configure_kvm_archlinux/

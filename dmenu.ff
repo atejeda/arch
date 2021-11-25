@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+declare -a options=(
+"personal"
+"work_0"
+"work_1"
+"work_2"
+)
+
+profile=$(printf '%s\n' "${options[@]}" | dmenu -i -l 20 -p 'profile:')
+
+firefox -P $profile
+
+exit 0
