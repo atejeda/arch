@@ -1,6 +1,4 @@
 --
--- xmonad example config file.
---
 -- A template showing all available configuration hooks,
 -- and how to override the defaults in your own xmonad.hs conf file.
 --
@@ -39,7 +37,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 3
+myBorderWidth   = 3 
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -57,7 +55,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = [ "1" , "2", "3", "4", "5", "6", "7", "8", "9" ]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -75,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    , ((modm,               xK_p     ), spawn "dmenu_run -fn 'Hack-10'")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
@@ -140,6 +138,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
+    -- Screenshots
+    , ((modm .|. shiftMask, xK_s     ), spawn "maim -s --format png /dev/stdout | xclip -selection clipboard -t image/png -i")
+
+    -- Lock computer
+    , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command --lock")
+    
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), xmessage help)
     
@@ -277,13 +281,13 @@ myStartupHook = do
 --
 --main = xmonad defaults
 main = do
-    xmproc <- spawnPipe "killall xmobar || xmobar -x 0"
+    xmproc <- spawnPipe "xrdb -merge ~/.Xresources; killall xmobar || xmobar -x 0"
     xmonad $ docks defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 25
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 5 
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
-          , ppSep = "   "
+          , ppSep = " "
         }
       , manageHook = manageDocks <+> myManageHook
       , startupHook = setWMName "LG3D"
