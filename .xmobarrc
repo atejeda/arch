@@ -1,24 +1,134 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
-        , borderColor = "black"
-        , border = TopB
-        , bgColor = "black"
-        , fgColor = "grey"
-        , position = TopW L 100
-        , commands =    [ Run Weather "SCEL" ["-t","<tempC>c","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
-                        , Run Com "~/arch/helper.status-wifi.sh" [] "wlp1s0si" 30
-                        , Run Com "~/arch/helper.status-audio.sh" [] "volstat" 10 
-                        , Run Network "enp34s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                        , Run Network "wlp1s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-                        , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-                        , Run Memory ["-t","Mem: <usedratio>%"] 10
-                        , Run Swap [] 10
-                        , Run Com "uname" ["-s","-r"] "" 36000
-                        , Run Date "%d/%m/%Y %H:%M UTC%Z" "date" 10
-                        , Run StdinReader
-                        , Run Battery ["-t","<acstatus>: <left>% - <timeleft>","--","-O","AC","-o","Bat","-h","green","-l","red"] 10
-                        , Run Wireless "wlp1s0" [ "-t", "<essid>" ] 10
-                        ]
-        , sepChar = "%"
-        , alignSep = "}{"
-        , template = " %StdinReader% | %cpu% | %memory% * %swap% | %enp34s0% }{ %volstat% | %uname% | <fc=#ee9a00>%date%</fc> %SCEL%"  
-        }
+-- Audio:
+--
+
+-- Brightness:
+--
+
+-- Fonts:
+-- pacman:
+--   ttf-font-awesome
+--   ttf-nerd-fonts-symbols-mono
+-- aur:
+--   https://aur.archlinux.org/ttf-mononoki.git
+--   https://aur.archlinux.org/nerd-fonts-complete.git
+
+-- Others:
+-- font viewer (via pacman): gtk2fontsel, gucharmap
+-- this one is capable showing the glyphs : gnome-font-viewer
+-- nerd fonts: https://aur.archlinux.org/packages/nerd-fonts-complete/
+-- recache fonts: fc-cache -fv (local fonts ~/.local/share/fonts), fc-list
+
+Config {
+  
+  -- appearance, size or pixelsize
+  font = "xft:hack:pixelsize=13:antialias=true:hinting=true"
+  , additionalFonts =
+      [ "xft:Mononoki:pixelsize=13:antialias=true:hinting=true"
+      , "xft:FontAwesome:pixelsize=13:antialias=true:hinting=true"
+      ]
+  , borderColor = "black"
+  , border = TopB
+  , bgColor = "black"
+  , fgColor = "grey"
+  , position = TopW L 100
+
+  , commands = [
+
+      -- weather
+      Run Weather "SCEL" 
+        [  "-t", "<tempC>c"
+        , "-L", "18"
+        , "-H", "25"
+        , "--normal", "green" 
+        , "--high", "red"
+        , "--low", "lightblue"
+        , "-p", "2"
+        ] 36000
+        
+      -- wireless
+      , Run Wireless "wlan0" 
+        [ "-a", "1"
+        , "-t", "<essid>/<quality>"
+        , "-L", "50"
+        , "-H", "75"
+        , "-l", "red"
+        , "-n", "yellow"
+        , "-h", "green"
+        ] 10
+
+      -- cpu
+      , Run Cpu 
+        [ "-L", "3"
+        , "-t", "<total>%"
+        , "-H", "50"
+        , "--normal", "green"
+        , "--high", "red"
+        , "-p", "2"
+        ] 10
+
+      -- memory
+      , Run Memory 
+        [ "-a" , "1"
+        , "-t", "<usedratio>%"
+        , "-L", "50"
+        , "-H", "75"
+        , "-l", "green"
+        , "-n", "yellow"
+        , "-h", "red"
+        , "-p", "2"
+        ] 10
+
+      -- swap
+      , Run Swap
+        [ "-t", "<usedratio>%"
+        ] 10
+      
+      -- date
+      , Run Date "%d/%m/%Y %H:%M UTC%Z" "date" 10
+
+      -- stdinreader
+      , Run StdinReader
+
+      -- battery
+      --  1 on ac, 0 on battery
+      , Run Battery 
+        [ "-t", "<acstatus>: <left>% <timeleft>"
+        , "--"
+        , "-O", "1"
+        , "-o", "0"
+        , "-h", "green"
+        , "-l", "red"
+        ] 10
+
+      -- brightness
+      , Run Brightness
+        [ "-t", "<bar>"
+        ] 30
+
+      -- dynnetwork
+      , Run DynNetwork
+        [ "--template" , "<dev>: <tx>kB/s | <rx>kB/s"
+        , "--Low"      , "1000"
+        , "--High"     , "5000"
+        , "--low"      , "darkgreen"
+        , "--normal"   , "darkorange"
+        , "--high"     , "darkred"
+        ] 10
+
+      -- volume
+      , Run Volume "default" "Master"
+        [ "-t", "<status> : <volume>%"
+        ] 10
+
+      -- stuff
+      , Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
+        
+      ]
+        
+  -- layout
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "[ %StdinReader% ] [ %cpu% | %memory% ] [ %dynnetwork% ] [ %default:Master% ] }{ [ %wlan0wi% ] [ %battery% ] [ %date% %SCEL% ]"  
+  }
+  
+  
