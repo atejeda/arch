@@ -35,5 +35,34 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrandr --output DVI-D-0 --mode 1920x1080 
+# general
+
+# disable bell
+xset -b b off
+
+# system defined functions
+
+function desktop() {
+    display_monitor="DVI-D-0";
+    display_mode="1920x1080";
+}
+
+function notebook() {
+    display_monitor="eDP-1";
+    display_mode="1920x1080";
+    setxkbmap -option "ctrl:nocaps"
+}
+
+# configure and start xmonad
+
+if [[ -f $HOME/.notebook.lock ]]; then 
+    notebook; 
+else 
+    desktop;
+fi
+
+xrandr --output $display_monitor --mode $display_mode
+nitrogen --restore &
+xscreensaver --no-splash &
+
 exec xmonad
