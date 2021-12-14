@@ -1,8 +1,10 @@
 ! xrdb ~/.Xresources
 
-!URxvt.font: xft:monospace:size=12
 URxvt.font: xft:Hack:size=10
+!URxvt.font: xft:monospace:size=12
 !URxvt.font: xft:UbuntuMono:size=12
+*antialias: true
+*autohint: true
 
 ! special
 *.foreground:   #c7ccd1
@@ -54,7 +56,7 @@ URxvt.geometry: 92x24
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 4096
-URxvt.scrollBar: true
+URxvt.scrollBar: false
 URxvt.scrollBar_right: true
 URxvt.urgentonbell: true
 URxvt.depth: 24
@@ -112,4 +114,3 @@ xterm*faceSize: 12
 !xterm*vt100.translations: #override \n\
 ! Shift <Key>Home: scroll-forw(10000000000) \n\
 ! Shift <Key>End: scroll-back(10000000000)
-
