@@ -76,3 +76,7 @@ xorg-xinit
 yt-dl
 gtk2fontsel
 xorg-appres
+nitrogen
+maim
+xclip
+xscreensaver
