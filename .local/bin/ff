@@ -4,6 +4,6 @@ options=$(cat $HOME/.mozilla/firefox/profiles.ini | grep Name | sed -e 's/Name=/
 
 profile=$(printf '%s\n' "${options[@]}" | dmenu -i -l 20 -p 'firefox:')
 
-firefox -P $profile
+[[ $profile ]] && firefox -P $profile
 
 exit 0
