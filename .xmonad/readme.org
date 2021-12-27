@@ -1,5 +1,10 @@
 * Xmonad / Xmobar install
 
+#+begin_src
+./build-checkout
+#+end_src
+
+
 ** stack
 
 #+begin_src
