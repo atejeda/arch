@@ -80,3 +80,4 @@ nitrogen
 maim
 xclip
 xscreensaver
+virtualbox
