@@ -41,7 +41,7 @@ fi
 xrdb -merge ~/.Xresources
 
 # tildes
-setxkbmap -layout us -variant intl
+#setxkbmap -layout us -variant intl
 
 # disable bell
 xset -b b off
