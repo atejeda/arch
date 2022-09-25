@@ -81,3 +81,7 @@ maim
 xclip
 xscreensaver
 virtualbox
+zsa-wally
+net-tools
+seahorse
+ntp
