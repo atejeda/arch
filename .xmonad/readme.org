@@ -10,7 +10,7 @@
 #+begin_src
 curl -sSL https://get.haskellstack.org/ | sh
 stack setup
-stack init
+stack init --force
 stack install
 #+end_src
 
